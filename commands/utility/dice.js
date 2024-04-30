@@ -10,7 +10,7 @@ module.exports = {
                 .setRequired(true)
         ),
     async execute(interaction) {
-        const regex = /\dd[468]|(10)|(12)|(20)/;
+        const regex = /\d+d(4|6|8|12|20)/;
         const input = interaction.options.getString('input');
         const dice = input.split(',');
         const rolls = new Map();
@@ -21,7 +21,7 @@ module.exports = {
            if(!regex.test(d)){
                output = 'ERROR: Input not #d# format separated by commas OR not d4/d6/d8/d12/d20.';
                await interaction.reply(output)
-               console.log(output);
+               console.log(`${input}: ${output}`);
                return;
            }
            if(!rolls.has(d)){
