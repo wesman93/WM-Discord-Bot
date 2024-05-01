@@ -41,4 +41,7 @@ for (const file of eventFiles) {
 
 // Log in to Discord with your client's token
 console.log('---------TOKEN------', token);
-client.login(token);
+
+client.login(token)
+    .then(value => console.log(value))
+    .catch(err => console.error(err));
